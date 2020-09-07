@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:clipToPadding="false"
+  android:paddingStart="@dimen/spacing_small"
+  android:paddingEnd="@dimen/spacing_small">
+
+  <LinearLayout
+    android:id="@+id/rowBackground"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/task_height"
+    android:background="@color/taskBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/spacing_small"
+    app:layout_constraintBottom_toBottomOf="@id/rowForeground"
+    app:layout_constraintEnd_toEndOf="@id/rowForeground"
+    app:layout_constraintTop_toTopOf="@id/rowForeground">
+
+    <ImageView
+      android:id="@+id/editIcon"
+      android:layout_width="@dimen/task_icon_size"
+      android:layout_height="@dimen/task_icon_size"
+      android:layout_marginStart="@dimen/spacing_small"
+      android:layout_marginEnd="@dimen/spacing_small"
+      android:background="?attr/selectableItemBackgroundBorderless"
+      android:clickable="true"
+      android:focusable="true"
+      android:padding="@dimen/spacing_small"
+      android:src="@drawable/ic_edit"
+      app:tint="@android:color/white" />
+
+    <ImageView
+      android:id="@+id/deleteIcon"
+      android:layout_width="@dimen/task_icon_size"
+      android:layout_height="@dimen/task_icon_size"
+      android:layout_marginEnd="@dimen/spacing_small"
+      android:background="?attr/selectableItemBackgroundBorderless"
+      android:clickable="true"
+      android:focusable="true"
+      android:padding="@dimen/spacing_small"
+      android:src="@drawable/ic_baseline_delete_24"
+      app:tint="@android:color/white" />
+  </LinearLayout>
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/rowForeground"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_small"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:visibility="visible"
+    app:cardCornerRadius="@dimen/task_corner_radius"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:foreground="?attr/selectableItemBackground"
+      android:padding="@dimen/spacing_medium">
+
+      <TextView
+        android:id="@+id/taskName"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        app:layout_constraintBottom_toTopOf="@id/taskDescription"
+        app:layout_constraintEnd_toStartOf="@id/shareIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@tools:sample/first_names" />
+
+      <TextView
+        android:id="@+id/taskDescription"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:lines="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/shareIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/taskName"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@tools:sample/cities" />
+
+      <ImageView
+        android:id="@+id/shareIcon"
+        android:layout_width="@dimen/task_icon_size"
+        android:layout_height="@dimen/task_icon_size"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/spacing_small"
+        android:src="@drawable/ic_share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
